@@ -1,38 +1,113 @@
-.App {
-  text-align: center;
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  color: #333;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header, nav, main, footer {
+  padding: 1em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header{
+  border: aqua 10px solid;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 0.5em 1em;
 }
 
-.App-link {
-  color: #61dafb;
+nav{
+  border: blue 10px solid;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+main{
+  border: green 10px solid;
+}
+
+footer{
+  border: red 10px solid;
+}
+
+nav ul li a {
+  text-decoration: none;
+}
+
+.nav-button {
+  font-size: 30px;
+  cursor: pointer;
+  display: none; /* 기본적으로 숨김 */
+  background: none;
+  border: none;
+}
+
+/* 네비게이션 메뉴 스타일 */
+#navMenu {
+  position: absolute; /* 변경: fixed 에서 absolute로 변경 */
+  top: 0;
+  left: -100%;
+  width: 300px; /* 메뉴 너비 설정 */
+  height: 100vh;
+  background: white;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  transition: left 0.3s;
+}
+
+#navMenu.open {
+  left: 0;
+}
+
+nav ul {
+  padding: 1em;
+}
+
+nav ul li {
+  margin-bottom: 1em;
+}
+
+/* 모바일 및 태블릿 화면에서 햄버거 버튼 표시 */
+@media screen and (max-width: 1024px) {
+  .nav-button {
+    display: block;
   }
-  to {
-    transform: rotate(360deg);
+
+  /* 네비게이션을 수직으로 표시 */
+  nav ul li {
+    display: block;
+  }
+}
+
+/* 모바일 장치 (화면 너비가 600px 이하) */
+@media screen and (max-width: 600px) {
+  header, footer {
+    background-color: lightblue;
+  }
+
+  nav ul li {
+    display: block;
+    margin-bottom: 5px;
+  }
+}
+
+/* 태블릿 장치 (화면 너비가 601px ~ 1024px) */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  header, footer {
+    background-color: lightgreen;
+  }
+
+  nav ul li {
+    display: inline;
+  }
+}
+
+/* 데스크톱 장치 (화면 너비가 1025px 이상) */
+@media screen and (min-width: 1025px) {
+  header, footer {
+    background-color: lightcoral;
+  }
+
+  nav ul li {
+    display: inline;
   }
 }
